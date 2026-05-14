@@ -915,7 +915,7 @@ h1,h2,h3,h4{color:var(--tx);font-weight:700;letter-spacing:-.025em;line-height:1
     <div class="pmeta"><span class="n">03</span><span>Projects</span><span class="l"></span></div>
     <div class="proj-intro">
       <h2>Selected projects</h2>
-      <p>Four projects across production ML, generative AI, and computer vision. Click any card to expand.</p>
+      <p>Five projects across production ML, generative AI, and computer vision. Click any card to expand.</p>
     </div>
 
     <div class="proj-grid">
@@ -967,15 +967,18 @@ h1,h2,h3,h4{color:var(--tx);font-weight:700;letter-spacing:-.025em;line-height:1
           <div class="pcm"><span class="pcm-v">5-Stage</span><span class="pcm-l">Pipeline</span></div>
         </div>
         <div class="pc-body">
-          <p class="pc-d">5-stage generative restoration: U2-Net segmentation, ControlNet-guided Stable Diffusion, Real-ESRGAN super-resolution. Best LPIPS across 5 baselines.</p>
+          <p class="pc-d">End-to-end 5-stage generative restoration pipeline transforming amateur smartphone product photos into catalog-quality images. Best LPIPS across 5 evaluated methods on the Amazon Berkeley Objects benchmark.</p>
           <div class="pc-stack">
-            <span class="pc-t">PyTorch</span><span class="pc-t">Stable Diffusion 1.5</span><span class="pc-t">ControlNet</span><span class="pc-t">LoRA</span><span class="pc-t">Real-ESRGAN</span><span class="pc-t">U2-Net</span><span class="pc-t">Gradio</span><span class="pc-t">Hugging Face</span><span class="pc-t">Docker</span>
+            <span class="pc-t">PyTorch</span><span class="pc-t">Stable Diffusion 1.5</span><span class="pc-t">ControlNet</span><span class="pc-t">LoRA / PEFT</span><span class="pc-t">Real-ESRGAN</span><span class="pc-t">U2-Net</span><span class="pc-t">accelerate</span><span class="pc-t">Gradio</span><span class="pc-t">Docker</span><span class="pc-t">Hugging Face Spaces</span>
           </div>
           <div class="pc-ex">
             <div class="pc-ex-i">
-              <div class="det"><em>01</em><span>Pipeline: U2-Net segmentation → Canny/HED conditioning → <strong>ControlNet-guided SD 1.5</strong> → compositing → Real-ESRGAN 2×.</span></div>
-              <div class="det"><em>02</em><span>LoRA fine-tuning <strong>rank=16, α=32</strong> on UNet cross-attention, 5,000 steps on T4. Dataset: 24,131-image Amazon Berkeley Objects.</span></div>
-              <div class="det"><em>03</em><span>Best-in-class <strong>LPIPS 0.322</strong>, FID 88.66 on 457-image test set. Deployed via Gradio + Docker on HF Spaces.</span></div>
+              <div class="det"><em>01</em><span>5-stage pipeline: <strong>U2-Net background segmentation → Canny structural conditioning → ControlNet-guided SD 1.5 image-to-image → studio compositing → Real-ESRGAN 2× super-resolution</strong>. Outputs 1024×1024 catalog-style imagery.</span></div>
+              <div class="det"><em>02</em><span>Authored LoRA fine-tuning script <strong>(rank=16, α=32, targeting UNet cross-attention to_q/to_k/to_v/to_out.0)</strong> via the peft library + accelerate.Accelerator for mixed-precision training; 5,000 optimizer steps on Colab T4, MSE 0.0802 → 0.0701.</span></div>
+              <div class="det"><em>03</em><span>Diagnosed and resolved silent LoRA-loading compatibility bug by writing a custom <strong>PeftModel.from_pretrained()</strong> helper after the default diffusers loader silently dropped the adapter — without this fix the entire fine-tuning effort would have been invisible at inference time.</span></div>
+              <div class="det"><em>04</em><span>Quantitative evaluation on a 457-image stratified test set across 7 product categories: <strong>best-in-class LPIPS 0.322 and FID 88.66</strong> across 5 baselines (OpenCV, PIL auto-enhance, background-only, SD without LoRA, full ClearShot).</span></div>
+              <div class="det"><em>05</em><span>Curated balanced 24,131-image subset of Amazon Berkeley Objects across 7 categories with stratified 80/10/10 split by image_id; synthesized paired clean/degraded data through a 9-transform reproducible degradation pipeline.</span></div>
+              <div class="det"><em>06</em><span>Deployed publicly on <strong>Hugging Face Spaces</strong> as a Gradio Blocks app with Docker containerization, single-image + batch-processing tabs, runtime LoRA toggle, and stage-aware progress callbacks.</span></div>
             </div>
           </div>
           <div class="pc-foot">
@@ -988,6 +991,39 @@ h1,h2,h3,h4{color:var(--tx);font-weight:700;letter-spacing:-.025em;line-height:1
         <div class="pc-head">
           <div class="pc-h-l">
             <div class="pc-num">03 — Project</div>
+            <div class="pc-name">Visual Product <em>Search</em></div>
+            <div class="pc-sub">YOLO-driven Amazon recommendation system</div>
+          </div>
+          <span class="pc-tag"><span class="d"></span>Graduate</span>
+        </div>
+        <div class="pc-metrics">
+          <div class="pcm"><span class="pcm-v">10K<em>+</em></span><span class="pcm-l">Product Catalog</span></div>
+          <div class="pcm"><span class="pcm-v">86.93<em>%</em></span><span class="pcm-l">Final Accuracy</span></div>
+          <div class="pcm"><span class="pcm-v">7 <em>cats</em></span><span class="pcm-l">Macro-Categories</span></div>
+        </div>
+        <div class="pc-body">
+          <p class="pc-d">Real-time visual product recommendation system combining YOLO v3 object detection with a curated 10K-entry Amazon product catalog. Detects objects in user photos and returns relevant products with bounding-box transparency. <em>DATA602 · Principles of Data Science · Fall 2024.</em></p>
+          <div class="pc-stack">
+            <span class="pc-t">Python</span><span class="pc-t">OpenCV</span><span class="pc-t">YOLO v3</span><span class="pc-t">Darknet-53</span><span class="pc-t">TensorFlow</span><span class="pc-t">Pandas</span><span class="pc-t">Matplotlib</span><span class="pc-t">Seaborn</span>
+          </div>
+          <div class="pc-ex">
+            <div class="pc-ex-i">
+              <div class="det"><em>01</em><span>YOLO v3 inference pipeline with <strong>Darknet-53 backbone and three-scale detection</strong>: 416×416 blob preprocessing, confidence-threshold filtering (0.5), and Non-Max Suppression for bounding-box refinement.</span></div>
+              <div class="det"><em>02</em><span>Trained for 10 epochs achieving <strong>86.93% final accuracy, 0.94 recall</strong>, and peak 94.75% accuracy during convergence; tracked precision/recall curves per epoch for stability analysis.</span></div>
+              <div class="det"><em>03</em><span>Keyword-matching engine maps detected COCO class labels to Amazon product entries via case-insensitive string matching, surfacing product metadata (name, category, price, direct URL) for visual queries.</span></div>
+              <div class="det"><em>04</em><span>Preprocessed 10K-entry product dataset: missing-value imputation, price-range averaging (e.g., "$20–$40" → midpoint), category standardization. Produced EDA artifacts (histograms, boxplots, category pie charts) informing recommendation strategy.</span></div>
+            </div>
+          </div>
+          <div class="pc-foot">
+            <button class="pc-toggle"><span>Expand details</span> ↓</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="pc" onclick="togP(this,event)">
+        <div class="pc-head">
+          <div class="pc-h-l">
+            <div class="pc-num">04 — Project</div>
             <div class="pc-name">Em<em>oji</em>fy</div>
             <div class="pc-sub">Real-time facial emotion recognition</div>
           </div>
@@ -1018,7 +1054,7 @@ h1,h2,h3,h4{color:var(--tx);font-weight:700;letter-spacing:-.025em;line-height:1
       <article class="pc" onclick="togP(this,event)">
         <div class="pc-head">
           <div class="pc-h-l">
-            <div class="pc-num">04 — Project</div>
+            <div class="pc-num">05 — Project</div>
             <div class="pc-name">Visio-<em>Detect</em></div>
             <div class="pc-sub">Object detection benchmark</div>
           </div>
