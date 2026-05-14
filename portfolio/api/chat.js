@@ -19,13 +19,13 @@ const corpus = {
   owner: "Roshan Syed",
   chunks: [
     { id: "about-summary", type: "about", tags: ["bio","summary","education"], source: "About",
-      text: "Roshan Syed is a Data Science graduate student at the University of Maryland, College Park (MS Data Science, GPA 4.0/4.0, 2024-Present), with a background in Artificial Intelligence and Machine Learning. He builds end-to-end ML systems that go from raw data to deployed, scalable inference, with production experience spanning cloud orchestration, generative AI, and computer vision." },
+      text: "Roshan Syed is a Data Science graduate student at the University of Maryland, College Park (MS Data Science, GPA 3.9/4.0, 2024-Present), with a background in Artificial Intelligence and Machine Learning. He builds end-to-end ML systems that go from raw data to deployed, scalable inference, with production experience spanning cloud orchestration, generative AI, and computer vision." },
     { id: "about-focus", type: "about", tags: ["specialization","production","mlops"], source: "About",
       text: "Roshan's work spans production ML pipelines (containerized on AWS, processing thousands of signals daily), generative AI (diffusion models, LoRA fine-tuning, Stable Diffusion), and computer vision (super-resolution, object detection, image enhancement). He cares about the full stack: feature engineering, model architecture, cloud orchestration, monitoring, and deployment." },
     { id: "about-current", type: "about", tags: ["job-search","roles","availability"], source: "About",
       text: "Roshan is currently looking for Machine Learning Engineer, Data Scientist, and AI Research roles where he can apply deep learning, cloud MLOps, and generative AI at scale. He is based in College Park, MD and willing to relocate. Contact: roshan.17.syed@gmail.com." },
     { id: "edu-umd", type: "education", tags: ["umd","masters","data-science","gpa"], source: "Education / UMD",
-      text: "Master of Science in Data Science at the University of Maryland, College Park (2024-Present). Current GPA: 4.0 out of 4.0. Coursework spans machine learning, statistical inference, data engineering, and applied AI." },
+      text: "Master of Science in Data Science at the University of Maryland, College Park (2024-Present). Current GPA: 3.9 out of 4.0. Coursework spans machine learning, statistical inference, data engineering, and applied AI." },
     { id: "edu-nhce", type: "education", tags: ["bachelors","ai-ml","undergrad"], source: "Education / NHCE",
       text: "Bachelor of Engineering in Artificial Intelligence and Machine Learning at New Horizon College of Engineering (2020-2024). Final CGPA: 8.46 out of 10.0. Four-year program focused on AI/ML fundamentals, neural networks, computer vision, and applied data science." },
     { id: "exp-fyenn-overview", type: "experience", tags: ["internship","fyenn-labs","ml-engineering"], source: "Fyenn Labs Services / Internship",
@@ -79,7 +79,7 @@ const corpus = {
     { id: "skills-viz", type: "skills", tags: ["visualization","bi","dashboards"], source: "Skills / Visualization",
       text: "Data Visualization skills: Power BI, Tableau, Matplotlib, Seaborn. Has built executive-facing BI dashboards as well as code-driven analytical visualizations for model evaluation and exploratory data analysis." },
     { id: "differentiators", type: "about", tags: ["strengths","differentiators","why-hire"], source: "Why hire Roshan",
-      text: "Roshan combines production engineering rigor with research depth. Unique strengths: he has shipped both classical-ML systems (LightGBM trading pipeline on AWS) and frontier-AI systems (LoRA-fine-tuned diffusion models). He owns the full lifecycle, from feature engineering through cloud orchestration to model evaluation. Strong academic record (4.0 GPA at UMD) backed by measurable production wins (40 percent cost reduction, 35 percent latency reduction, best-in-class LPIPS scores)." }
+      text: "Roshan combines production engineering rigor with research depth. Unique strengths: he has shipped both classical-ML systems (LightGBM trading pipeline on AWS) and frontier-AI systems (LoRA-fine-tuned diffusion models). He owns the full lifecycle, from feature engineering through cloud orchestration to model evaluation. Strong academic record (3.9 GPA at UMD) backed by measurable production wins (40 percent cost reduction, 35 percent latency reduction, best-in-class LPIPS scores)." }
   ]
 };
 
