@@ -261,6 +261,22 @@ header.tn{
 .ctrig:hover{transform:translateY(-1px);background:var(--ac2);box-shadow:0 6px 28px var(--ac-glow)}
 .ctrig::before{content:'';width:6px;height:6px;background:#062028;border-radius:50%;animation:pls 2s ease-in-out infinite}
 
+/* Outline variant — Resume download in top nav */
+.ctrig-out{
+  background:rgba(22,46,68,.7);backdrop-filter:blur(10px);
+  color:var(--tx);border:1px solid var(--ac);
+  padding:.6rem 1.1rem;border-radius:100px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.5rem;
+  transition:all .15s;
+}
+.ctrig-out:hover{background:var(--ac-tint);transform:translateY(-1px);box-shadow:0 4px 20px var(--ac-dim)}
+.ctrig-out svg{width:13px;height:13px;color:var(--ac)}
+
+/* Wrap top-nav CTAs */
+.tn-cta{display:flex;align-items:center;gap:.6rem}
+
 @keyframes pls{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.92)}}
 
 /* ─── SCROLL CONTAINER — proximity snap for smooth feel ─── */
@@ -734,6 +750,8 @@ h1,h2,h3,h4{color:var(--tx);font-weight:700;letter-spacing:-.025em;line-height:1
 @media (max-width:760px){
   .tn-links{display:none}
   header.tn{padding:.85rem 5%}
+  .ctrig-out{padding:.55rem .65rem;gap:0;font-size:0}
+  .ctrig-out svg{width:14px;height:14px}
   .page{padding:5rem 5% 4rem}
   .hname{font-size:clamp(2.5rem,11vw,4.5rem)}
   .hero-art{display:none}
@@ -788,7 +806,13 @@ h1,h2,h3,h4{color:var(--tx);font-weight:700;letter-spacing:-.025em;line-height:1
     <li><a class="tn-link" href="#education" data-nav="education"><span class="nx">06</span>Edu</a></li>
     <li><a class="tn-link" href="#contact" data-nav="contact"><span class="nx">07</span>Contact</a></li>
   </ul>
-  <button class="ctrig" onclick="openConcierge()">Ask Roshan-AI</button>
+  <div class="tn-cta">
+    <a class="ctrig-out" href="Roshan_Syed_Resume.pdf" download="Roshan_Syed_Resume.pdf" title="Download resume PDF">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Resume
+    </a>
+    <button class="ctrig" onclick="openConcierge()">Ask Roshan-AI</button>
+  </div>
 </header>
 
 <aside class="scroll-prog">
@@ -823,6 +847,7 @@ h1,h2,h3,h4{color:var(--tx);font-weight:700;letter-spacing:-.025em;line-height:1
         </div>
         <div class="h-cta">
           <button class="qbtn fil" data-go="projects">View projects <span class="ar">→</span></button>
+          <a class="qbtn" href="Roshan_Syed_Resume.pdf" download="Roshan_Syed_Resume.pdf">Download Resume <span class="ar">↓</span></a>
           <button class="qbtn" data-go="contact">Contact <span class="ar">→</span></button>
 
           <span class="h-divider"></span>
