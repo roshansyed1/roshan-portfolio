@@ -1,0 +1,16 @@
+{
+  "name": "roshan-syed-portfolio",
+  "version": "1.0.0",
+  "description": "AI-powered portfolio with hybrid RAG retrieval — Roshan Syed",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build-embeddings": "node scripts/build-embeddings.js"
+  },
+  "devDependencies": {
+    "@xenova/transformers": "^2.17.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
